@@ -28,7 +28,7 @@ class AlphaV13:
         self.current_equity = 0
 
     async def init(self):
-        logger.info("Alpha V10.6 启动")
+        logger.info("Alpha V13 启动")
         async with self.engine.begin() as conn:
             await conn.run_sync(Base.metadata.create_all)
 
