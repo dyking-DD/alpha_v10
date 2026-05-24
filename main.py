@@ -9,7 +9,7 @@ from engine.risk import RiskEngine
 from engine.market import MarketEngine
 
 DB_URL = "sqlite+aiosqlite:////root/alpha_v10_6/alpha_v10_6.db"
-LOG_FILE = "/root/alpha_v10_6/system.log"
+LOG_FILE = "/root/alpha_v10/system.log"
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s',
                     handlers=[logging.FileHandler(LOG_FILE), logging.StreamHandler()])
 logger = logging.getLogger("main")
