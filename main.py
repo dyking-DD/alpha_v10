@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
                     handlers=[logging.FileHandler(LOG_FILE), logging.StreamHandler()])
 logger = logging.getLogger("main")
 
-class AlphaV10_6:
+class AlphaV13:
     def __init__(self, audit_mode=True):
         self.audit = audit_mode
         self.engine = create_async_engine(DB_URL)
@@ -86,4 +86,4 @@ class AlphaV10_6:
 
 if __name__ == "__main__":
     audit = "--live" not in sys.argv  # 默认审计模式，加 --live 切实盘
-    asyncio.run(AlphaV10_6(audit_mode=audit).run())
+    asyncio.run(AlphaV13(audit_mode=audit).run())
