@@ -50,7 +50,7 @@ class AlphaV13:
         self.recon = ReconciliationEngine(self.exchange, self.Session)
 
         # 启动对账
-        await self.recon.run_full_reconciliation()
+        if self.exchange: await self.recon.run_full_reconciliation()
 
         if self.exchange:
             try:
@@ -78,7 +78,7 @@ class AlphaV13:
                     logger.info(f"权益={rp['equity']} 回撤={rp['drawdown_pct']}% 熔断={rp['meltdown']}")
                 # 定时对账
                 if datetime.now().hour % 6 == 0:
-                    await self.recon.run_full_reconciliation()
+                    if self.exchange: await self.recon.run_full_reconciliation()
                 await asyncio.sleep(60)
             except Exception as e:
                 logger.error(f"主循环异常: {e}")
